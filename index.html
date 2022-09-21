@@ -59,6 +59,7 @@
     .hand {
       width: 50%;
       height: 6px;
+      border-radius: 0px 10px 10px 0;
       background: black;
       position: absolute;
       top: 50%;
@@ -66,7 +67,16 @@
       transform-origin: 100%;
       transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
     }
-    /* .hand.second-hand{} */
+    .hand.second-hand{
+        height: 2px;
+    }
+    .hand.hour-hand{
+        width: 30%;
+        left: 20%;
+    }
+    .hand.min-hand{
+        height: 4px;
+    }
 
   </style>
 
@@ -78,7 +88,7 @@
     function setDate() {
         const now = new Date();
         const seconds = now.getSeconds();
-        const secondsDegrees = seconds * 6;
+        const secondsDegrees = seconds * 6 + 90;
         secondsHand.style.transform = `rotate(${secondsDegrees}deg)`;
 
         const mins = now.getMinutes();
